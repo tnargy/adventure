@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1ly7c4hvffqh"
-path="res://.godot/imported/Idle.png-d8d0079de666e4fd79b8fe85e06d713c.ctex"
+path="res://.godot/imported/Idle.png-d158acc5c5ebeeb6c2bbafa3584fb96f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaRed2/SeparateAnim/Idle.png"
-dest_files=["res://.godot/imported/Idle.png-d8d0079de666e4fd79b8fe85e06d713c.ctex"]
+source_file="res://Assets/Characters/NinjaRed2/SeparateAnim/Idle.png"
+dest_files=["res://.godot/imported/Idle.png-d158acc5c5ebeeb6c2bbafa3584fb96f.ctex"]
 
 [params]
 

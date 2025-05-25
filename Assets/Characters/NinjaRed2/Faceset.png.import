@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ds8tp2mmv7vde"
-path="res://.godot/imported/Faceset.png-dd685ed1576726108d6bc86898908a8d.ctex"
+path="res://.godot/imported/Faceset.png-63f4927423b6a2aa29478773e51bb3b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaRed2/Faceset.png"
-dest_files=["res://.godot/imported/Faceset.png-dd685ed1576726108d6bc86898908a8d.ctex"]
+source_file="res://Assets/Characters/NinjaRed2/Faceset.png"
+dest_files=["res://.godot/imported/Faceset.png-63f4927423b6a2aa29478773e51bb3b7.ctex"]
 
 [params]
 

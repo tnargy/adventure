@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b0ppenkgqmwl7"
-path="res://.godot/imported/SpriteSheet.png-6024e82f1a83270718c346028527fde6.ctex"
+path="res://.godot/imported/SpriteSheet.png-ef6f7332b090135d04e93c57bd617901.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaRed2/SpriteSheet.png"
-dest_files=["res://.godot/imported/SpriteSheet.png-6024e82f1a83270718c346028527fde6.ctex"]
+source_file="res://Assets/Characters/NinjaRed2/SpriteSheet.png"
+dest_files=["res://.godot/imported/SpriteSheet.png-ef6f7332b090135d04e93c57bd617901.ctex"]
 
 [params]
 
