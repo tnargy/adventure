@@ -5,7 +5,7 @@ extends CharacterBody2D
 
 @export var hp: int = 10
 @export var move_speed: float = 60
-@export var push_strength: float = 160
+@export var push_strength: float = 300
 
 var direction: Vector2
 
@@ -22,7 +22,7 @@ func _input(_event):
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _physics_process(_delta):
 	velocity = direction * move_speed	
 	if velocity.x > 0:
 		$AnimatedSprite2D.play("move_right")
