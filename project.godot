@@ -19,6 +19,7 @@ config/icon="uid://ds8tp2mmv7vde"
 
 folder_colors={
 "res://Scenes/": "blue",
+"res://Scenes/DungeonScene/": "orange",
 "res://Scenes/GameScene/": "green"
 }
 

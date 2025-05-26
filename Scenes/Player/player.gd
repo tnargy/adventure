@@ -14,7 +14,7 @@ func _ready():
 	pass # Replace with function body.
 
 
-func _input(event):
+func _input(_event):
 	direction = Input.get_vector(
 		"move_left","move_right",
 		"move_up","move_down")
