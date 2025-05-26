@@ -15,6 +15,10 @@ run/main_scene="uid://5eieif2ho2ef"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="uid://ds8tp2mmv7vde"
 
+[autoload]
+
+SceneManager="*res://Scenes/SceneManager/scene_manager.tscn"
+
 [file_customization]
 
 folder_colors={
