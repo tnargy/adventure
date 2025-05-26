@@ -19,6 +19,10 @@ config/icon="uid://ds8tp2mmv7vde"
 
 SceneManager="*res://Scenes/SceneManager/scene_manager.tscn"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [file_customization]
 
 folder_colors={
@@ -26,6 +30,11 @@ folder_colors={
 "res://Scenes/DungeonScene/": "orange",
 "res://Scenes/GameScene/": "green"
 }
+
+[global_group]
+
+wall="A wall layer"
+pushable="Object can be pushed"
 
 [input]
 

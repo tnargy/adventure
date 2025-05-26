@@ -5,6 +5,7 @@ extends CharacterBody2D
 
 @export var hp: int = 10
 @export var move_speed: float = 60
+@export var push_strength: float = 160
 
 var direction: Vector2
 
@@ -33,5 +34,12 @@ func _process(_delta):
 		$AnimatedSprite2D.play("move_up")
 	else:
 		$AnimatedSprite2D.stop()
+		
+	var collision: KinematicCollision2D = get_last_slide_collision()
+	if collision:
+		var collision_node = collision.get_collider()
+		if collision_node.is_in_group("pushable"):
+			var collision_normal: Vector2 = collision.get_normal()
+			collision_node.apply_central_force(-collision_normal * push_strength)
 	
 	move_and_slide()
