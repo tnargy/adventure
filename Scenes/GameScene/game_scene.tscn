@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://5eieif2ho2ef"]
+[gd_scene load_steps=14 format=4 uid="uid://5eieif2ho2ef"]
 
 [ext_resource type="PackedScene" uid="uid://dj5k60cn40tda" path="res://Scenes/Player/player.tscn" id="1_2p8i2"]
 [ext_resource type="Texture2D" uid="uid://cxhgsfaoha8kg" path="res://Assets/Tilesets/TilesetFloor.png" id="1_l6yvh"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dxw25s47xestr" path="res://Scenes/PuzzleButton/puzzle_button.tscn" id="5_ohrk8"]
 [ext_resource type="PackedScene" uid="uid://b8ow2rq40878c" path="res://Scenes/SceneEntrance/scene_entrance.tscn" id="5_oi8ly"]
 [ext_resource type="PackedScene" uid="uid://b0eov5rb7cfjh" path="res://Scenes/Block/block.tscn" id="6_12ovb"]
+[ext_resource type="PackedScene" uid="uid://b6q7bngxk1k4c" path="res://Scenes/LockedDoor/locked_door.tscn" id="6_elpgg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_04h35"]
 texture = ExtResource("1_l6yvh")
@@ -791,7 +792,7 @@ tile_map_data = PackedByteArray("AAD+//z/AAAMAAcAAAD///z/AAARAAkAAAD///3/AAAMAAg
 tile_set = SubResource("TileSet_kr7le")
 
 [node name="PuzzleButton" parent="." instance=ExtResource("5_ohrk8")]
-position = Vector2(-18, -30)
+position = Vector2(-224, 37)
 
 [node name="ObstacleLayer" type="TileMapLayer" parent="."]
 y_sort_enabled = true
@@ -803,8 +804,14 @@ tile_set = SubResource("TileSet_oi8ly")
 [node name="Camera2D" type="Camera2D" parent="ObstacleLayer/Player"]
 zoom = Vector2(5, 5)
 
+[node name="LockedDoor" parent="." instance=ExtResource("6_elpgg")]
+position = Vector2(-280, 5)
+
 [node name="SceneEntrance" parent="." instance=ExtResource("5_oi8ly")]
 position = Vector2(-280, -2)
 
 [node name="Block" parent="." instance=ExtResource("6_12ovb")]
-position = Vector2(-19, -3)
+position = Vector2(-279, 37)
+
+[connection signal="pressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_pressed"]
+[connection signal="unpressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_unpressed"]
