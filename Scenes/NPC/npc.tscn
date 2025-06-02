@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://i81kwdfpy1mr"]
+
+[ext_resource type="Texture2D" uid="uid://dxmvv6ej0e4t5" path="res://Assets/Characters/NinjaBlue2/SpriteSheet.png" id="1_3am0f"]
+[ext_resource type="Script" uid="uid://8aohbcgllbqq" path="res://Scenes/NPC/npc.gd" id="1_bjna2"]
+[ext_resource type="Texture2D" uid="uid://doh7kboo8bdb5" path="res://Assets/UI/DialogBoxFaceset.png" id="3_0s07e"]
+[ext_resource type="Texture2D" uid="uid://p2562k1m27xe" path="res://Assets/Characters/NinjaBlue2/Faceset.png" id="4_aqj1y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjna2"]
+size = Vector2(15, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0s07e"]
+atlas = ExtResource("1_3am0f")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_aqj1y"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="NPC" type="StaticBody2D" groups=["interactable"]]
+collision_mask = 7
+script = ExtResource("1_bjna2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bjna2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_0s07e")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Dialog" type="TextureRect" parent="CanvasLayer"]
+offset_left = 19.0
+offset_top = 411.0
+offset_right = 319.0
+offset_bottom = 469.0
+scale = Vector2(3.7, 3.7)
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = ExtResource("3_0s07e")
+
+[node name="Portrait" type="TextureRect" parent="CanvasLayer/Dialog"]
+layout_mode = 0
+offset_left = 5.94595
+offset_top = 14.0541
+offset_right = 43.9459
+offset_bottom = 52.0541
+texture = ExtResource("4_aqj1y")
+stretch_mode = 5
+
+[node name="Text" type="Label" parent="CanvasLayer/Dialog"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 18.0
+offset_right = 288.0
+offset_bottom = 47.0
+text = "Hello, World"
+label_settings = SubResource("LabelSettings_aqj1y")
