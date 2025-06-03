@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://dguw4f3agtooi"]
+[gd_scene load_steps=19 format=4 uid="uid://dguw4f3agtooi"]
 
 [ext_resource type="PackedScene" uid="uid://dj5k60cn40tda" path="res://Scenes/Player/player.tscn" id="1_xuufh"]
 [ext_resource type="PackedScene" uid="uid://b8ow2rq40878c" path="res://Scenes/SceneEntrance/scene_entrance.tscn" id="2_okyhq"]
@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://b0eov5rb7cfjh" path="res://Scenes/Block/block.tscn" id="7_8ho00"]
 [ext_resource type="PackedScene" uid="uid://n7vjvd68ro85" path="res://Scenes/Block/ice_block.tscn" id="8_odg1s"]
 [ext_resource type="PackedScene" uid="uid://cxu6nhjbxhdfw" path="res://Scenes/PuzzleButton/puzzle_button_single.tscn" id="9_n5fck"]
+[ext_resource type="PackedScene" uid="uid://i81kwdfpy1mr" path="res://Scenes/NPC/npc.tscn" id="10_g75ix"]
+[ext_resource type="Texture2D" uid="uid://bbqugbmx0roo3" path="res://Assets/Characters/Woman/SpriteSheet.png" id="11_x00t5"]
+[ext_resource type="Texture2D" uid="uid://chlcd8rjfd4r0" path="res://Assets/Characters/Woman/Faceset.png" id="12_r5l8u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_102mq"]
 texture = ExtResource("4_6f4q3")
@@ -817,6 +820,10 @@ sources/0 = SubResource("TileSetAtlasSource_6f4q3")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5fck"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mv4ck"]
+atlas = ExtResource("11_x00t5")
+region = Rect2(0, 0, 16, 16)
+
 [node name="DungeonScene" type="Node2D"]
 
 [node name="SceneEntrance" parent="." instance=ExtResource("2_okyhq")]
@@ -883,6 +890,21 @@ position = Vector2(216, -97)
 [node name="LockedDoor3" parent="." instance=ExtResource("6_8ho00")]
 position = Vector2(112, -24)
 
+[node name="NPC" parent="." instance=ExtResource("10_g75ix")]
+position = Vector2(216, -121)
+
+[node name="Sprite2D" parent="NPC" index="1"]
+texture = SubResource("AtlasTexture_mv4ck")
+
+[node name="Portrait" parent="NPC/CanvasLayer/Dialog" index="0"]
+texture = ExtResource("12_r5l8u")
+
+[node name="Text" parent="NPC/CanvasLayer/Dialog" index="1"]
+text = "Thank you for saving me!"
+
+[node name="NameLabel" parent="NPC/CanvasLayer" index="1"]
+text = "Woman"
+
 [node name="Player" parent="." instance=ExtResource("1_xuufh")]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -896,3 +918,5 @@ zoom = Vector2(5, 5)
 [connection signal="unpressed" from="PuzzleButton3" to="LockedDoor2" method="_on_puzzle_button_unpressed"]
 [connection signal="pressed" from="PuzzleButtonSingle" to="LockedDoor3" method="_on_puzzle_button_pressed"]
 [connection signal="unpressed" from="PuzzleButtonSingle" to="LockedDoor3" method="_on_puzzle_button_unpressed"]
+
+[editable path="NPC"]

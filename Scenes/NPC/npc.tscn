@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://i81kwdfpy1mr"]
+[gd_scene load_steps=9 format=3 uid="uid://i81kwdfpy1mr"]
 
 [ext_resource type="Texture2D" uid="uid://dxmvv6ej0e4t5" path="res://Assets/Characters/NinjaBlue2/SpriteSheet.png" id="1_3am0f"]
 [ext_resource type="Script" uid="uid://8aohbcgllbqq" path="res://Scenes/NPC/npc.gd" id="1_bjna2"]
@@ -13,7 +13,11 @@ atlas = ExtResource("1_3am0f")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="LabelSettings" id="LabelSettings_aqj1y"]
+line_spacing = -6.0
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_n8r46"]
+font_size = 28
 
 [node name="NPC" type="StaticBody2D" groups=["interactable"]]
 collision_mask = 7
@@ -49,9 +53,19 @@ stretch_mode = 5
 
 [node name="Text" type="Label" parent="CanvasLayer/Dialog"]
 layout_mode = 0
-offset_left = 55.0
-offset_top = 18.0
-offset_right = 288.0
-offset_bottom = 47.0
+offset_left = 51.0
+offset_top = 14.0
+offset_right = 292.0
+offset_bottom = 51.0
 text = "Hello, World"
 label_settings = SubResource("LabelSettings_aqj1y")
+autowrap_mode = 3
+
+[node name="NameLabel" type="Label" parent="CanvasLayer"]
+offset_left = 42.0
+offset_top = 413.0
+offset_right = 269.0
+offset_bottom = 452.0
+text = "Blue Ninja"
+label_settings = SubResource("LabelSettings_n8r46")
+horizontal_alignment = 1

@@ -38,10 +38,6 @@ wall="A wall layer"
 pushable="Object can be pushed"
 interactable="Can be interacted with"
 
-[gui]
-
-theme/custom_font="uid://b0q541waaojgd"
-
 [input]
 
 move_right={
