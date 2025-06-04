@@ -820,7 +820,7 @@ sources/0 = SubResource("TileSetAtlasSource_6f4q3")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5fck"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mv4ck"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_g75ix"]
 atlas = ExtResource("11_x00t5")
 region = Rect2(0, 0, 16, 16)
 
@@ -892,15 +892,13 @@ position = Vector2(112, -24)
 
 [node name="NPC" parent="." instance=ExtResource("10_g75ix")]
 position = Vector2(216, -121)
+dialogue_lines = Array[String](["Thank you for rescuing me!"])
 
 [node name="Sprite2D" parent="NPC" index="1"]
-texture = SubResource("AtlasTexture_mv4ck")
+texture = SubResource("AtlasTexture_g75ix")
 
-[node name="Portrait" parent="NPC/CanvasLayer/Dialog" index="0"]
+[node name="Portrait" parent="NPC/CanvasLayer/Dialogue" index="0"]
 texture = ExtResource("12_r5l8u")
-
-[node name="Text" parent="NPC/CanvasLayer/Dialog" index="1"]
-text = "Thank you for saving me!"
 
 [node name="NameLabel" parent="NPC/CanvasLayer" index="1"]
 text = "Woman"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://5eieif2ho2ef"]
+[gd_scene load_steps=23 format=4 uid="uid://5eieif2ho2ef"]
 
 [ext_resource type="PackedScene" uid="uid://dj5k60cn40tda" path="res://Scenes/Player/player.tscn" id="1_2p8i2"]
 [ext_resource type="Texture2D" uid="uid://cxhgsfaoha8kg" path="res://Assets/Tilesets/TilesetFloor.png" id="1_l6yvh"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://i81kwdfpy1mr" path="res://Scenes/NPC/npc.tscn" id="7_nr542"]
 [ext_resource type="Texture2D" uid="uid://ncxvoyv60dqf" path="res://Assets/Characters/NinjaGreen/SpriteSheet.png" id="8_dc78n"]
 [ext_resource type="Texture2D" uid="uid://cda16oymt7jhg" path="res://Assets/Characters/NinjaGreen/Faceset.png" id="9_6qy3m"]
+[ext_resource type="Texture2D" uid="uid://cg2us4b4ydmjv" path="res://Assets/Characters/NinjaMageBlack/Faceset.png" id="10_6qy3m"]
+[ext_resource type="Texture2D" uid="uid://n6ir7osk3q7b" path="res://Assets/Characters/NinjaMageBlack/SpriteSheet.png" id="10_njm7v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_04h35"]
 texture = ExtResource("1_l6yvh")
@@ -790,8 +792,12 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_kr7le")
 sources/2 = SubResource("TileSetAtlasSource_12ovb")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_njm7v"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkvnf"]
 atlas = ExtResource("8_dc78n")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njm7v"]
+atlas = ExtResource("10_njm7v")
 region = Rect2(0, 0, 16, 16)
 
 [node name="GameScene" type="Node2D"]
@@ -843,21 +849,33 @@ zoom = Vector2(5, 5)
 
 [node name="NPC" parent="ObstacleLayer" instance=ExtResource("7_nr542")]
 position = Vector2(28, -17)
+dialogue_lines = Array[String](["Hey bro, did you know you can interact with people?", "Oh, you already knew that by talking to me, huh?"])
 
 [node name="NPC2" parent="ObstacleLayer" instance=ExtResource("7_nr542")]
-position = Vector2(-161, -14)
+position = Vector2(-111, -16)
+dialogue_lines = Array[String](["I heard rumors there was a cave further to the West...", "You should probably go check it out."])
 
 [node name="Sprite2D" parent="ObstacleLayer/NPC2" index="1"]
-texture = SubResource("AtlasTexture_njm7v")
+texture = SubResource("AtlasTexture_bkvnf")
 
-[node name="Portrait" parent="ObstacleLayer/NPC2/CanvasLayer/Dialog" index="0"]
+[node name="Portrait" parent="ObstacleLayer/NPC2/CanvasLayer/Dialogue" index="0"]
 texture = ExtResource("9_6qy3m")
-
-[node name="Text" parent="ObstacleLayer/NPC2/CanvasLayer/Dialog" index="1"]
-text = "Did you know that there is a cave to the west?"
 
 [node name="NameLabel" parent="ObstacleLayer/NPC2/CanvasLayer" index="1"]
 text = "Green Ninja"
+
+[node name="NPC3" parent="ObstacleLayer" instance=ExtResource("7_nr542")]
+position = Vector2(-248, 6)
+dialogue_lines = Array[String](["You think you can beat my dungeon? Bwahahahaha!", "I bet you won't even solve the first puzzle inside!"])
+
+[node name="Sprite2D" parent="ObstacleLayer/NPC3" index="1"]
+texture = SubResource("AtlasTexture_njm7v")
+
+[node name="Portrait" parent="ObstacleLayer/NPC3/CanvasLayer/Dialogue" index="0"]
+texture = ExtResource("10_6qy3m")
+
+[node name="NameLabel" parent="ObstacleLayer/NPC3/CanvasLayer" index="1"]
+text = "Dark Ninja"
 
 [node name="LockedDoor" parent="." instance=ExtResource("6_elpgg")]
 position = Vector2(-280, 5)
@@ -869,3 +887,4 @@ position = Vector2(-280, -2)
 [connection signal="unpressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_unpressed"]
 
 [editable path="ObstacleLayer/NPC2"]
+[editable path="ObstacleLayer/NPC3"]

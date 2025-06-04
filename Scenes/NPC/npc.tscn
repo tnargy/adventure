@@ -20,6 +20,7 @@ font_color = Color(0, 0, 0, 1)
 font_size = 28
 
 [node name="NPC" type="StaticBody2D" groups=["interactable"]]
+process_mode = 3
 collision_mask = 7
 script = ExtResource("1_bjna2")
 
@@ -32,7 +33,7 @@ texture = SubResource("AtlasTexture_0s07e")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
 
-[node name="Dialog" type="TextureRect" parent="CanvasLayer"]
+[node name="Dialogue" type="TextureRect" parent="CanvasLayer"]
 offset_left = 19.0
 offset_top = 411.0
 offset_right = 319.0
@@ -42,7 +43,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 texture = ExtResource("3_0s07e")
 
-[node name="Portrait" type="TextureRect" parent="CanvasLayer/Dialog"]
+[node name="Portrait" type="TextureRect" parent="CanvasLayer/Dialogue"]
 layout_mode = 0
 offset_left = 5.94595
 offset_top = 14.0541
@@ -51,7 +52,8 @@ offset_bottom = 52.0541
 texture = ExtResource("4_aqj1y")
 stretch_mode = 5
 
-[node name="Text" type="Label" parent="CanvasLayer/Dialog"]
+[node name="DialogueText" type="Label" parent="CanvasLayer/Dialogue"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 51.0
 offset_top = 14.0
