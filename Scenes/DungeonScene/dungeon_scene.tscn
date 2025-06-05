@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://dguw4f3agtooi"]
+[gd_scene load_steps=20 format=4 uid="uid://dguw4f3agtooi"]
 
 [ext_resource type="PackedScene" uid="uid://dj5k60cn40tda" path="res://Scenes/Player/player.tscn" id="1_xuufh"]
 [ext_resource type="PackedScene" uid="uid://b8ow2rq40878c" path="res://Scenes/SceneEntrance/scene_entrance.tscn" id="2_okyhq"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://i81kwdfpy1mr" path="res://Scenes/NPC/npc.tscn" id="10_g75ix"]
 [ext_resource type="Texture2D" uid="uid://bbqugbmx0roo3" path="res://Assets/Characters/Woman/SpriteSheet.png" id="11_x00t5"]
 [ext_resource type="Texture2D" uid="uid://chlcd8rjfd4r0" path="res://Assets/Characters/Woman/Faceset.png" id="12_r5l8u"]
+[ext_resource type="PackedScene" uid="uid://jh0a4g0iaknk" path="res://Scenes/Switch/switch.tscn" id="13_x00t5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_102mq"]
 texture = ExtResource("4_6f4q3")
@@ -859,36 +860,56 @@ shape = SubResource("RectangleShape2D_n5fck")
 position = Vector2(217, -99)
 shape = SubResource("RectangleShape2D_n5fck")
 
-[node name="PuzzleButton" parent="." instance=ExtResource("5_00mv7")]
-position = Vector2(-312, -56)
+[node name="Blocks" type="Node" parent="."]
 
-[node name="PuzzleButton2" parent="." instance=ExtResource("5_00mv7")]
-position = Vector2(-169, -55)
-
-[node name="PuzzleButton3" parent="." instance=ExtResource("5_00mv7")]
-position = Vector2(169, -71)
-
-[node name="PuzzleButtonSingle" parent="." instance=ExtResource("9_n5fck")]
-position = Vector2(-249, -155)
-
-[node name="Block" parent="." instance=ExtResource("7_8ho00")]
+[node name="Block" parent="Blocks" instance=ExtResource("7_8ho00")]
 position = Vector2(-295, -57)
 
-[node name="Block2" parent="." instance=ExtResource("7_8ho00")]
+[node name="Block2" parent="Blocks" instance=ExtResource("7_8ho00")]
 position = Vector2(-296, -1)
 
-[node name="IceBlock" parent="." instance=ExtResource("8_odg1s")]
+[node name="IceBlock" parent="Blocks" instance=ExtResource("8_odg1s")]
 position = Vector2(138, -25)
 
-[node name="LockedDoor" parent="." instance=ExtResource("6_8ho00")]
+[node name="Buttons" type="Node" parent="Blocks"]
+
+[node name="PuzzleButton" parent="Blocks/Buttons" instance=ExtResource("5_00mv7")]
+position = Vector2(-312, -56)
+
+[node name="PuzzleButton2" parent="Blocks/Buttons" instance=ExtResource("5_00mv7")]
+position = Vector2(-169, -55)
+
+[node name="PuzzleButton3" parent="Blocks/Buttons" instance=ExtResource("5_00mv7")]
+position = Vector2(169, -71)
+
+[node name="PuzzleButtonSingle" parent="Blocks/Buttons" instance=ExtResource("9_n5fck")]
+position = Vector2(-249, -155)
+
+[node name="Doors" type="Node" parent="."]
+
+[node name="LockedDoor" parent="Doors" instance=ExtResource("6_8ho00")]
 position = Vector2(-248, -82)
 number_of_buttons_needed = 2
 
-[node name="LockedDoor2" parent="." instance=ExtResource("6_8ho00")]
+[node name="LockedDoor2" parent="Doors" instance=ExtResource("6_8ho00")]
 position = Vector2(216, -97)
 
-[node name="LockedDoor3" parent="." instance=ExtResource("6_8ho00")]
+[node name="LockedDoor3" parent="Doors" instance=ExtResource("6_8ho00")]
 position = Vector2(112, -24)
+
+[node name="Switch" parent="." instance=ExtResource("13_x00t5")]
+position = Vector2(-19, -35)
+active = true
+
+[node name="Switch2" parent="." instance=ExtResource("13_x00t5")]
+position = Vector2(-46, -35)
+
+[node name="Switch3" parent="." instance=ExtResource("13_x00t5")]
+position = Vector2(7, -35)
+
+[node name="Switch4" parent="." instance=ExtResource("13_x00t5")]
+position = Vector2(34, -35)
+active = true
 
 [node name="NPC" parent="." instance=ExtResource("10_g75ix")]
 position = Vector2(216, -121)
@@ -908,13 +929,13 @@ text = "Woman"
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(5, 5)
 
-[connection signal="pressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_pressed"]
-[connection signal="unpressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_unpressed"]
-[connection signal="pressed" from="PuzzleButton2" to="LockedDoor" method="_on_puzzle_button_pressed"]
-[connection signal="unpressed" from="PuzzleButton2" to="LockedDoor" method="_on_puzzle_button_unpressed"]
-[connection signal="pressed" from="PuzzleButton3" to="LockedDoor2" method="_on_puzzle_button_pressed"]
-[connection signal="unpressed" from="PuzzleButton3" to="LockedDoor2" method="_on_puzzle_button_unpressed"]
-[connection signal="pressed" from="PuzzleButtonSingle" to="LockedDoor3" method="_on_puzzle_button_pressed"]
-[connection signal="unpressed" from="PuzzleButtonSingle" to="LockedDoor3" method="_on_puzzle_button_unpressed"]
+[connection signal="pressed" from="Blocks/Buttons/PuzzleButton" to="Doors/LockedDoor" method="_on_puzzle_button_pressed"]
+[connection signal="unpressed" from="Blocks/Buttons/PuzzleButton" to="Doors/LockedDoor" method="_on_puzzle_button_unpressed"]
+[connection signal="pressed" from="Blocks/Buttons/PuzzleButton2" to="Doors/LockedDoor" method="_on_puzzle_button_pressed"]
+[connection signal="unpressed" from="Blocks/Buttons/PuzzleButton2" to="Doors/LockedDoor" method="_on_puzzle_button_unpressed"]
+[connection signal="pressed" from="Blocks/Buttons/PuzzleButton3" to="Doors/LockedDoor2" method="_on_puzzle_button_pressed"]
+[connection signal="unpressed" from="Blocks/Buttons/PuzzleButton3" to="Doors/LockedDoor2" method="_on_puzzle_button_unpressed"]
+[connection signal="pressed" from="Blocks/Buttons/PuzzleButtonSingle" to="Doors/LockedDoor3" method="_on_puzzle_button_pressed"]
+[connection signal="unpressed" from="Blocks/Buttons/PuzzleButtonSingle" to="Doors/LockedDoor3" method="_on_puzzle_button_unpressed"]
 
 [editable path="NPC"]
