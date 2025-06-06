@@ -27,8 +27,8 @@ window/stretch/mode="canvas_items"
 
 folder_colors={
 "res://Scenes/": "blue",
-"res://Scenes/DungeonScene/": "orange",
 "res://Scenes/GameScene/": "green",
+"res://Scenes/GameScene/DungeonScene/": "orange",
 "res://Scenes/Player/": "pink"
 }
 

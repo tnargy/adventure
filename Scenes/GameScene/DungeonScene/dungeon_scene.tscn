@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b8ow2rq40878c" path="res://Scenes/SceneEntrance/scene_entrance.tscn" id="2_okyhq"]
 [ext_resource type="Texture2D" uid="uid://doe1x43uf57vi" path="res://Assets/Tilesets/Interior/TilesetWallSimple.png" id="3_sx8ki"]
 [ext_resource type="Texture2D" uid="uid://dn8a4po74o02o" path="res://Assets/Tilesets/Interior/TilesetInteriorFloor.png" id="4_6f4q3"]
-[ext_resource type="Script" path="res://Scenes/DungeonScene/secret_wall_layer.gd" id="4_r5l8u"]
+[ext_resource type="Script" uid="uid://m17732n1h6bd" path="res://Scenes/GameScene/DungeonScene/secret_wall_layer.gd" id="4_r5l8u"]
 [ext_resource type="PackedScene" uid="uid://dxw25s47xestr" path="res://Scenes/PuzzleButton/puzzle_button.tscn" id="5_00mv7"]
 [ext_resource type="PackedScene" uid="uid://b6q7bngxk1k4c" path="res://Scenes/LockedDoor/locked_door.tscn" id="6_8ho00"]
 [ext_resource type="PackedScene" uid="uid://b0eov5rb7cfjh" path="res://Scenes/Block/block.tscn" id="7_8ho00"]
