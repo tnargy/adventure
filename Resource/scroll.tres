@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bx6nvevv1yobc"]
+
+[ext_resource type="Texture2D" uid="uid://dkmt4hlrmfipr" path="res://Assets/Treasure/ScrollEmpty.png" id="1_y1dbo"]
+[ext_resource type="Script" uid="uid://1akg1b11pwro" path="res://Resource/item.gd" id="2_hg6ah"]
+
+[resource]
+script = ExtResource("2_hg6ah")
+name = "Scroll"
+image = ExtResource("1_y1dbo")

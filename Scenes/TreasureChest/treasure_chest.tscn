@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://c1anb2bthdh3b"]
+
+[ext_resource type="Script" uid="uid://bfmk1drvb654b" path="res://Scenes/TreasureChest/treasure_chest.gd" id="1_2tkyh"]
+[ext_resource type="Texture2D" uid="uid://b2kr4cbadhun4" path="res://Assets/Treasure/BigTreasureChest.png" id="1_v1qrq"]
+[ext_resource type="Resource" uid="uid://b4bbs82jfrfxk" path="res://Resource/coin.tres" id="2_sdjdt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1qrq"]
+size = Vector2(16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tkyh"]
+atlas = ExtResource("1_v1qrq")
+region = Rect2(0, 0, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdjdt"]
+atlas = ExtResource("1_v1qrq")
+region = Rect2(16, 0, 16, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2a6ve"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2tkyh")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdjdt")
+}],
+"loop": true,
+"name": &"opened",
+"speed": 5.0
+}]
+
+[node name="TreasureChest" type="StaticBody2D" groups=["interactable"]]
+script = ExtResource("1_2tkyh")
+reward = ExtResource("2_sdjdt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_v1qrq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2a6ve")
+animation = &"closed"
+autoplay = "closed"
+
+[node name="Reward" type="Sprite2D" parent="."]
+visible = false

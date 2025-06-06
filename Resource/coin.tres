@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b4bbs82jfrfxk"]
+
+[ext_resource type="Texture2D" uid="uid://177pcao6v11t" path="res://Assets/Treasure/GoldCoin.png" id="1_lcr7f"]
+[ext_resource type="Script" uid="uid://1akg1b11pwro" path="res://Resource/item.gd" id="2_py2bh"]
+
+[resource]
+script = ExtResource("2_py2bh")
+name = "Coin"
+image = ExtResource("1_lcr7f")
