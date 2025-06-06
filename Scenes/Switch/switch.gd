@@ -3,7 +3,7 @@ extends StaticBody2D
 @export var active: bool = false
 var can_interact: bool = false
 
-signal state_changed(bool)
+signal state_changed(active: bool)
 
 
 func _ready():
