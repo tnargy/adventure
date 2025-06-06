@@ -12,9 +12,11 @@ var direction: Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$CanvasLayer.visible = true
+	SceneManager.player_inventory_changed.connect(_update_inventory_ui)
+	_update_inventory_ui()
 	if SceneManager.player_spawn_position != Vector2.ZERO:
 		position = SceneManager.player_spawn_position
-
 
 func _input(_event):
 	direction = Input.get_vector(
@@ -64,3 +66,7 @@ func _on_interact_area_body_entered(body):
 func _on_interact_area_body_exited(body):
 	if body.is_in_group("interactable"):
 		body.can_interact = false
+		
+func _update_inventory_ui():
+	%CoinValue.text = str(SceneManager.player_inventory["Coin"])
+	%ScrollValue.text = str(SceneManager.player_inventory["Scroll"])

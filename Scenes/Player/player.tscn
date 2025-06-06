@@ -1,7 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://dj5k60cn40tda"]
+[gd_scene load_steps=25 format=3 uid="uid://dj5k60cn40tda"]
 
 [ext_resource type="Script" uid="uid://deptlgr5d6wfm" path="res://Scenes/Player/player.gd" id="1_a3d8c"]
 [ext_resource type="Texture2D" uid="uid://c06arqsef33ls" path="res://Assets/Characters/NinjaRed2/SeparateAnim/Walk.png" id="2_a3d8c"]
+[ext_resource type="Texture2D" uid="uid://177pcao6v11t" path="res://Assets/Treasure/GoldCoin.png" id="3_xpcdj"]
+[ext_resource type="Texture2D" uid="uid://dkmt4hlrmfipr" path="res://Assets/Treasure/ScrollEmpty.png" id="4_mtuoh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xpcdj"]
 atlas = ExtResource("2_a3d8c")
@@ -145,6 +147,9 @@ height = 12.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a3d8c"]
 size = Vector2(8, 8)
 
+[sub_resource type="LabelSettings" id="LabelSettings_a3d8c"]
+font_size = 48
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 7
@@ -165,6 +170,50 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
 shape = SubResource("RectangleShape2D_a3d8c")
 debug_color = Color(2.26215e-06, 0.649953, 0.119976, 0.42)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_left = 42.0
+offset_top = 36.0
+offset_right = 287.0
+offset_bottom = 174.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Coins" type="HBoxContainer" parent="CanvasLayer/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Panel/VBoxContainer/Coins"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+texture = ExtResource("3_xpcdj")
+stretch_mode = 5
+
+[node name="CoinValue" type="Label" parent="CanvasLayer/Panel/VBoxContainer/Coins"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_a3d8c")
+
+[node name="Scrolls" type="HBoxContainer" parent="CanvasLayer/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Panel/VBoxContainer/Scrolls"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+texture = ExtResource("4_mtuoh")
+stretch_mode = 5
+
+[node name="ScrollValue" type="Label" parent="CanvasLayer/Panel/VBoxContainer/Scrolls"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_a3d8c")
 
 [connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
 [connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]

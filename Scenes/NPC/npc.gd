@@ -15,4 +15,6 @@ func _process(_delta):
 			%DialogueText.text = dialogue_lines[current_line]
 			current_line += 1
 			$CanvasLayer.visible = true
+			if current_line >= len(dialogue_lines):
+				%More.visible = false
 			get_tree().paused = true

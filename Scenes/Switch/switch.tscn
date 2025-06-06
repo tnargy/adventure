@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ca4xfk4wwsu6g" path="res://Assets/Tilesets/TilesetDungeon.png" id="1_g65jv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g65jv"]
-size = Vector2(16, 7)
+size = Vector2(16, 8.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c5yrt"]
 atlas = ExtResource("1_g65jv")
@@ -37,7 +37,7 @@ animations = [{
 script = ExtResource("1_c5yrt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
+position = Vector2(0, 4.75)
 shape = SubResource("RectangleShape2D_g65jv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -859,16 +859,16 @@ dialogue_lines = Array[String](["Hey bro, did you know you can interact with peo
 
 [node name="NPC2" parent="ObstacleLayer" instance=ExtResource("7_nr542")]
 position = Vector2(-111, -16)
-dialogue_lines = Array[String](["I heard rumors there was a cave further to the West...", "You should probably go check it out."])
+dialogue_lines = Array[String](["I heard rumors there was a cave further to the West", "You should probably go check it out."])
 
 [node name="Sprite2D" parent="ObstacleLayer/NPC2" index="1"]
 texture = SubResource("AtlasTexture_bkvnf")
 
-[node name="Portrait" parent="ObstacleLayer/NPC2/CanvasLayer/Dialogue" index="0"]
-texture = ExtResource("9_6qy3m")
-
 [node name="NameLabel" parent="ObstacleLayer/NPC2/CanvasLayer" index="1"]
 text = "Green Ninja"
+
+[node name="Portrait" parent="ObstacleLayer/NPC2/CanvasLayer" index="2"]
+texture = ExtResource("9_6qy3m")
 
 [node name="NPC3" parent="ObstacleLayer" instance=ExtResource("7_nr542")]
 position = Vector2(-248, 6)
@@ -877,11 +877,11 @@ dialogue_lines = Array[String](["You think you can beat my dungeon? Bwahahahaha!
 [node name="Sprite2D" parent="ObstacleLayer/NPC3" index="1"]
 texture = SubResource("AtlasTexture_njm7v")
 
-[node name="Portrait" parent="ObstacleLayer/NPC3/CanvasLayer/Dialogue" index="0"]
-texture = ExtResource("10_6qy3m")
-
 [node name="NameLabel" parent="ObstacleLayer/NPC3/CanvasLayer" index="1"]
 text = "Dark Ninja"
+
+[node name="Portrait" parent="ObstacleLayer/NPC3/CanvasLayer" index="2"]
+texture = ExtResource("10_6qy3m")
 
 [node name="LockedDoor" parent="." instance=ExtResource("6_elpgg")]
 position = Vector2(-280, 5)
