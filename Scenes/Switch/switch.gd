@@ -16,6 +16,7 @@ func _ready():
 
 func _process(_delta):
 	if can_interact and Input.is_action_just_pressed("interact"):
+		$SoundPlayer.play()
 		if active:
 			$AnimatedSprite2D.play("deactivated")
 			switch_deactivated.emit()

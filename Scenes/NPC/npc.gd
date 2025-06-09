@@ -7,6 +7,7 @@ var current_line: int = 0
 
 func _process(_delta):
 	if can_interact and Input.is_action_just_pressed("interact"):
+		$SoundPlayer.play()
 		if $CanvasLayer.visible and current_line >= len(dialogue_lines):
 			current_line = 0
 			$CanvasLayer.visible = false

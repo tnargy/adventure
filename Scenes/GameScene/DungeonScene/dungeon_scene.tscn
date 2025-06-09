@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://dguw4f3agtooi"]
+[gd_scene load_steps=26 format=4 uid="uid://dguw4f3agtooi"]
 
 [ext_resource type="PackedScene" uid="uid://dj5k60cn40tda" path="res://Scenes/Player/player.tscn" id="1_xuufh"]
 [ext_resource type="PackedScene" uid="uid://b8ow2rq40878c" path="res://Scenes/SceneEntrance/scene_entrance.tscn" id="2_okyhq"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://jh0a4g0iaknk" path="res://Scenes/Switch/switch.tscn" id="13_x00t5"]
 [ext_resource type="PackedScene" uid="uid://c1anb2bthdh3b" path="res://Scenes/TreasureChest/treasure_chest.tscn" id="16_ct4wq"]
 [ext_resource type="Resource" uid="uid://bx6nvevv1yobc" path="res://Resource/scroll.tres" id="17_3lfkx"]
+[ext_resource type="PackedScene" uid="uid://vgpftfi3vr3h" path="res://Scenes/Audio/music_player.tscn" id="18_32pyc"]
 [ext_resource type="AudioStream" uid="uid://dxc1uihfrkcwg" path="res://Assets/Musics/2 - The Cave.ogg" id="18_iscbn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_102mq"]
@@ -955,10 +956,8 @@ texture = ExtResource("12_r5l8u")
 position = Vector2(-219, -153)
 chest_name = "D1Coin"
 
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+[node name="MusicPlayer" parent="." instance=ExtResource("18_32pyc")]
 stream = ExtResource("18_iscbn")
-autoplay = true
-parameters/looping = true
 
 [connection signal="pressed" from="Buttons/PuzzleButton" to="Doors/LockedDoor" method="_on_puzzle_button_pressed"]
 [connection signal="unpressed" from="Buttons/PuzzleButton" to="Doors/LockedDoor" method="_on_puzzle_button_unpressed"]
