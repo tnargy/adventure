@@ -1124,10 +1124,10 @@ position = Vector2(71, -102)
 
 [node name="Camera2D" type="Camera2D" parent="ObstacleLayer/Player"]
 zoom = Vector2(5, 5)
-limit_left = -303
+limit_left = -176
 limit_top = -304
-limit_right = 271
-limit_bottom = 208
+limit_right = 272
+limit_bottom = -16
 
 [node name="SceneEntrance" parent="." instance=ExtResource("6_uw8fw")]
 position = Vector2(71, -314)
