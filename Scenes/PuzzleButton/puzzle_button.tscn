@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dxw25s47xestr"]
+[gd_scene load_steps=9 format=3 uid="uid://dxw25s47xestr"]
 
 [ext_resource type="Script" uid="uid://dk5gqiusgonpj" path="res://Scenes/PuzzleButton/puzzle_button.gd" id="1_dls00"]
 [ext_resource type="Texture2D" uid="uid://ca4xfk4wwsu6g" path="res://Assets/Tilesets/TilesetDungeon.png" id="2_lffmm"]
+[ext_resource type="PackedScene" uid="uid://fnbuc0oiyrrh" path="res://Scenes/Audio/sound_player.tscn" id="3_n7725"]
+[ext_resource type="AudioStream" uid="uid://du48k11tnu5is" path="res://Assets/Sounds/Game/Gold2.wav" id="4_7ang4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c66ud"]
 size = Vector2(16, 16)
@@ -44,6 +46,9 @@ shape = SubResource("RectangleShape2D_c66ud")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s5max")
 animation = &"unpressed"
+
+[node name="SoundPlayer" parent="." instance=ExtResource("3_n7725")]
+stream = ExtResource("4_7ang4")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -31,4 +31,5 @@ func open_chest():
 
 func play_opened():
 	$AnimatedSprite2D.play("opened")
+	$SoundPlayer.play()
 	is_open = true
